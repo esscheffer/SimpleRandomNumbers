@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DiceRollActivity">
+
+    <LinearLayout
+        android:id="@+id/dices_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/d4_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d4"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_d4"
+                android:tag="4" />
+
+            <ImageButton
+                android:id="@+id/d6_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d6"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_perspective_dice_six_faces_six"
+                android:tag="6"
+                app:layout_constraintStart_toEndOf="@+id/d4_image_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/d8_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d8"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dice_eight_faces_eight"
+                android:tag="8"
+                app:layout_constraintStart_toEndOf="@+id/d6_image_button"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/d10_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d10"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_d10"
+                android:tag="10" />
+
+            <ImageButton
+                android:id="@+id/d12_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d12"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_d12"
+                android:tag="12"
+                app:layout_constraintStart_toEndOf="@+id/d4_image_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/d20_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/d20"
+                android:padding="@dimen/simple_padding"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_dice_twenty_faces_twenty"
+                android:tag="20"
+                app:layout_constraintStart_toEndOf="@+id/d6_image_button"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dice_count_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        android:text="@string/dices_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dices_layout" />
+
+    <com.xw.repo.BubbleSeekBar
+        android:id="@+id/dice_count_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        app:bsb_bubble_color="@color/colorAccent"
+        app:bsb_bubble_text_color="@color/colorPrimaryDark"
+        app:bsb_max="20"
+        app:bsb_min="1"
+        app:bsb_progress="1"
+        app:bsb_second_track_color="@color/colorAccent"
+        app:bsb_section_count="1"
+        app:bsb_section_text_position="bottom_sides"
+        app:bsb_show_section_mark="true"
+        app:bsb_show_section_text="true"
+        app:bsb_show_thumb_text="true"
+        app:bsb_touch_to_seek="true"
+        app:bsb_track_color="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/dice_count_label" />
+
+    <TextView
+        android:id="@+id/extra_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        android:text="@string/extra_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice_count_seekBar" />
+
+    <com.xw.repo.BubbleSeekBar
+        android:id="@+id/extra_value_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        app:bsb_bubble_color="@color/colorAccent"
+        app:bsb_bubble_text_color="@color/colorPrimaryDark"
+        app:bsb_max="20"
+        app:bsb_min="-20"
+        app:bsb_progress="0"
+        app:bsb_second_track_color="@color/colorAccent"
+        app:bsb_section_count="1"
+        app:bsb_section_text_position="bottom_sides"
+        app:bsb_show_section_mark="true"
+        app:bsb_show_section_text="true"
+        app:bsb_show_thumb_text="true"
+        app:bsb_touch_to_seek="true"
+        app:bsb_track_color="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/extra_label" />
+
+    <Button
+        android:id="@+id/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        android:text="@string/roll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/roll_button" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/simple_margin"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/roll_button"
+        app:layout_constraintTop_toBottomOf="@+id/extra_value_seekBar">
+
+        <TextView
+            android:id="@+id/dice_roll_list_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/dice_list_text_size"
+            tools:text="11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 + 20" />
+
+        <TextView
+            android:id="@+id/total_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/dice_result_text_size"
+            tools:text="20" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
